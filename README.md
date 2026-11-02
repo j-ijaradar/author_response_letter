@@ -92,7 +92,6 @@ Section~2 now describes the data collection in detail.
 | [`04-customisation`](examples/04-customisation.tex) ([PDF](examples/04-customisation.pdf)) | Scientific Reports | Own colours, thank-you phrases, general response and title-page wording; three reviewers |
 
 > [!NOTE]
-> The journal names are real journals used only as examples. All author names (John Doe, Jane Doe, Richard Roe, Mary Major), manuscript numbers and content are fictional.
 
 To build the examples, run `latexmk 01-minimal.tex` inside `examples/` (the included `.latexmkrc` finds the class in the parent folder), or copy the class file into `examples/`.
 
