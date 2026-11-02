@@ -229,8 +229,3 @@ If this class does not fit your workflow, these projects are excellent alternati
 
 Released under the [GNU General Public License v3.0](LICENSE).
 
-<div align="center">
-
-**Author:** Jyotirmaya Ijaradar
-
-</div>
