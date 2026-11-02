@@ -1,0 +1,63 @@
+% =============================================================================
+% Example 03 -- Class options
+% The same kind of letter, built with most class options switched on:
+%   final            hide \authorcheck notes (a warning still reports them)
+%   greyscale        black-and-white output
+%   compact          tighter line spacing and smaller gaps
+%   plainnumbers     "Comment 1" instead of "Comment R1.1"
+%   noautothanks     no automatic thank-you phrase
+%   continuousthanks thank-you phrases do not restart for each reviewer (not used here)
+% Remove options from the list to compare the output.
+% Author names, manuscript numbers and content are fictional; the journal
+% name is a real journal used only as an example.
+% =============================================================================
+\documentclass[11pt,final,greyscale,compact,plainnumbers,noautothanks]{authorresponseletter}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{An Imaginary Benchmark for Sample Algorithms}
+\author{Richard Roe}
+\journal{IEEE Transactions on Intelligent Transportation Systems}
+\manuscript{T-ITS-00-00-0003}
+
+\begin{document}
+\maketitle
+
+\reviewer
+
+\begin{generalcomment}
+A solid contribution. A few clarifications are needed.
+\end{generalcomment}
+\begin{generalresponse}
+\end{generalresponse}
+
+\begin{revcomment}
+\label{r1:c1}
+Please report the runtime of each algorithm.
+\end{revcomment}
+\begin{revresponse}
+Runtimes are now reported in Table~4.
+\authorcheck{This note is hidden because of the 'final' option.}
+\end{revresponse}
+
+\begin{revcomment}
+Please add a reference to the original benchmark.
+\end{revcomment}
+\begin{revresponse}
+The reference has been added in Section~1.
+\begin{revision}[Section 1, p.~2]
+The benchmark was first introduced by \added{Doe et al.~(2000)} \deleted{an earlier study}.
+\end{revision}
+\end{revresponse}
+
+\reviewer
+
+\begin{revcomment}
+Is the benchmark publicly available?
+\end{revcomment}
+\begin{revresponse}
+Yes. As noted in our response to \commentref{r1:c1}, all data and code are now linked in the Data Availability Statement.
+\end{revresponse}
+
+\end{document}

@@ -1,0 +1,55 @@
+% =============================================================================
+% Example 01 -- Minimal response letter
+% The smallest useful document: title page, one reviewer, three comments.
+% Author names, manuscript numbers and content are fictional; the journal
+% name is a real journal used only as an example.
+% Compile with pdfLaTeX (twice).
+% =============================================================================
+\documentclass[11pt]{authorresponseletter}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{A Placeholder Study of Example Systems}
+\author{John Doe and Jane Doe}
+\journal{PLOS ONE}
+\manuscript{PONE-D-00-00001}
+
+\begin{document}
+\maketitle
+
+\reviewer
+
+\begin{generalcomment}
+The manuscript studies an interesting placeholder problem and is generally well written. Some methodological details need clarification before it can be accepted.
+\end{generalcomment}
+
+% No optional argument: the default general response is printed.
+\begin{generalresponse}
+\end{generalresponse}
+
+\begin{revcomment}
+The data collection procedure is not described in sufficient detail.
+\end{revcomment}
+% No optional argument: an automatic thank-you phrase is printed.
+\begin{revresponse}
+We have expanded Section~2 with a full description of the data collection procedure, including the sampling interval and the cleaning steps.
+\end{revresponse}
+
+\begin{revcomment}
+Figure~3 is difficult to read.
+\end{revcomment}
+% Optional argument: your own thank-you sentence.
+\begin{revresponse}[We thank the reviewer for this helpful remark on readability.]
+Figure~3 has been redrawn with larger labels and a colour-blind-friendly palette.
+\end{revresponse}
+
+\begin{revcomment}
+There is a typo in Equation~(4).
+\end{revcomment}
+% Empty optional argument: no thank-you sentence.
+\begin{revresponse}[]
+Corrected.
+\end{revresponse}
+
+\end{document}

@@ -1,0 +1,92 @@
+% =============================================================================
+% Example 04 -- Customisation
+% Own colours, own thank-you phrases, own default general response,
+% own title page wording, and three reviewers.
+% Author names, manuscript numbers and content are fictional; the journal
+% name is a real journal used only as an example.
+% =============================================================================
+\documentclass[11pt]{authorresponseletter}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{Notes on a Hypothetical Measurement Campaign}
+\author{Jane Doe and Mary Major}
+\journal{Scientific Reports}
+\manuscript{SREP-00-00004.R1}
+
+% --- Title page wording ------------------------------------------------------
+\titleheading{Point-by-Point Response}
+\submittedto{First revision submitted to}
+
+% --- Colours -----------------------------------------------------------------
+% \setreviewercolors{<n or editor>}{<text>}{<background>}{<frame>}
+\setreviewercolors{2}{orange!50!black}{orange!8}{orange!70!black}
+% \setgeneralcolors{<text>}{<background>}{<frame>}
+\setgeneralcolors{black!80}{yellow!10}{yellow!60!black}
+
+% --- Thank-you phrases -------------------------------------------------------
+% Replace the built-in list. \therecipient prints "reviewer" or "editor".
+\clearthankyou
+\addthankyou{Many thanks for this suggestion.}
+\addthankyou{We appreciate the \therecipient's attention to this detail.}
+\addthankyou{This is a fair point, and we thank the \therecipient{} for raising it.}
+
+% --- Default general response ------------------------------------------------
+\generalresponsetext{We thank the \therecipient{} for the careful reading of our manuscript and for the helpful suggestions. Our responses follow below.}
+
+\begin{document}
+\maketitle
+
+\reviewer
+\begin{generalcomment}
+Interesting work, minor revision recommended.
+\end{generalcomment}
+\begin{generalresponse}
+\end{generalresponse}
+
+\begin{revcomment}
+Please define all abbreviations at first use.
+\end{revcomment}
+\begin{revresponse}
+All abbreviations are now defined at first use.
+\end{revresponse}
+
+\begin{revcomment}
+The units in Table~1 are missing.
+\end{revcomment}
+\begin{revresponse}
+Units have been added to all columns of Table~1.
+\end{revresponse}
+
+\reviewer
+\begin{generalcomment}
+The general comment box keeps the same colour for every reviewer.
+\end{generalcomment}
+\begin{generalresponse}
+\end{generalresponse}
+
+\begin{revcomment}
+Reviewer~2 uses the custom orange scheme set in the preamble.
+\end{revcomment}
+\begin{revresponse}
+Thank-you phrases restart for each reviewer.
+\end{revresponse}
+
+\begin{revcomment}
+Please pick a specific phrase.
+\end{revcomment}
+\begin{revresponse}[\thankyou{3}]
+Phrase number 3 was selected manually with \verb|\thankyou{3}|.
+\end{revresponse}
+
+\reviewer
+\begin{revcomment}
+Reviewer~3 uses the third built-in colour scheme (purple).
+\end{revcomment}
+\begin{revresponse}
+\autothanksoff
+Automatic phrases can also be switched off from here on with \verb|\autothanksoff|.
+\end{revresponse}
+
+\end{document}

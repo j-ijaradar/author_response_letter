@@ -1,0 +1,136 @@
+% =============================================================================
+% Example 02 -- Full feature tour
+% Cover letter, overview table, editor and two reviewers, cross-references,
+% sub-points, quoted revised text with inline changes, author notes.
+% Author names, manuscript numbers and content are fictional; the journal
+% name is a real journal used only as an example.
+% Compile with pdfLaTeX (twice, so the overview and references resolve).
+% =============================================================================
+\documentclass[11pt,english]{authorresponseletter}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{hyperref}
+
+\title{Forecasting Demand in Fictional City Networks with Example Models}
+\author{John Doe, Jane Doe, Richard Roe, and Mary Major}
+\journal{Transportation Research Part C: Emerging Technologies}
+\manuscript{TRC-D-00-00002}
+\signature{John Doe}         % printed under the cover letter
+% \onbehalf{}                    % empty removes "On behalf of all authors"
+% \letterclosing{Kind regards,}  % default: "Yours sincerely,"
+
+\begin{document}
+\maketitle
+
+% -----------------------------------------------------------------------------
+\begin{coverletter}
+Thank you for handling the review of our manuscript, \enquote{Forecasting Demand in Fictional City Networks with Example Models} (Manuscript No.~TRC-D-00-00002), and for the opportunity to submit a revised version.
+
+We are grateful to both reviewers for their careful assessment and constructive suggestions. In the revision, we have focused on (i)~methodological transparency, (ii)~additional robustness checks, and (iii)~a clearer discussion of the implications. A point-by-point response follows.
+\end{coverletter}
+
+% Table of all comments with \addressedin locations and page numbers.
+\printoverview
+
+% -----------------------------------------------------------------------------
+\editor
+
+\begin{revcomment}
+\label{e:c1}
+Please shorten the abstract to 250 words, as required by the journal.
+\end{revcomment}
+\begin{revresponse}[We thank the editor for this reminder.]
+\addressedin{Abstract}
+The abstract has been shortened to 236 words.
+\end{revresponse}
+
+% -----------------------------------------------------------------------------
+\reviewer
+
+\begin{generalcomment}
+This paper proposes a forecasting framework for a fictional city network. The topic is relevant and the dataset is valuable. However, the parameter choices and the validation strategy need further explanation.
+\end{generalcomment}
+
+\begin{generalresponse}[]
+We sincerely thank the reviewer for the time and effort invested in evaluating our manuscript. We appreciate the recognition of the relevance of the topic and the value of the dataset. We have revised the manuscript accordingly and address each comment point by point below.
+\end{generalresponse}
+
+\begin{revcomment}
+\label{r1:c1}
+The values of the smoothing window $w$ and the weights $\alpha_1$ and $\alpha_2$ are not reported.
+\end{revcomment}
+\begin{revresponse}[We thank the reviewer for this detailed comment on the parameter settings.]
+\addressedin{Section~2.3}
+All parameter values are now reported, together with their rationale:
+\begin{revision}[Section 2.3, p.~6, ll.~110--118]
+The smoothing window was set to $w = 3$ observations. The weights were set to \replaced{$\alpha_1 = 0.7$ and $\alpha_2 = 0.3$}{$\alpha_1 = \alpha_2 = 0.5$}. \added{This choice reflects the higher reliability of the volume measurements.} \deleted{Default values were used.}
+\end{revision}
+\authorcheck{Confirm the final value of $w$ before submission. (Remove this note, or compile with the \texttt{final} option.)}
+\end{revresponse}
+
+\begin{revcomment}
+\label{r1:c2}
+Two points regarding the dataset:
+\begin{subcomments}
+\item \label{r1:c2a} The locations of the sensors are not shown.
+\item \label{r1:c2b} The choice of the study period should be justified.
+\end{subcomments}
+\end{revcomment}
+\begin{revresponse}[We appreciate these two helpful suggestions.]
+\addressedin{Section~2.1; Figure~1}
+\begin{subresponses}
+\item A map of all sensor locations has been added as Figure~1.
+\item The study period is now justified at the beginning of Section~2.1.
+\end{subresponses}
+\end{revresponse}
+
+\begin{revcomment}
+\label{r1:c3}
+The practical implications of the results remain limited.
+\end{revcomment}
+\begin{revresponse}
+\addressedin{Section~5}
+Together with \commentref{r2:c2}, we have rewritten Section~5 to derive implications for network operators.
+\end{revresponse}
+
+% -----------------------------------------------------------------------------
+\reviewer
+
+\begin{generalcomment}
+The manuscript addresses an interesting problem, but the novelty compared with existing models should be clarified.
+\end{generalcomment}
+
+\begin{generalresponse}
+\end{generalresponse}
+
+\begin{revcomment}
+\label{r2:c1}
+How were the weights in Equation~(2) determined?
+\end{revcomment}
+\begin{revresponse}
+\addressedin{Section~2.3}
+As explained in our response to \commentref{r1:c1}, the weights are now reported and justified. The new sensor map (see \commentref*{r1:c2a}) also supports this choice.
+\end{revresponse}
+
+\begin{revcomment}
+\label{r2:c2}
+The conclusion should distinguish case-specific findings from general lessons.
+\end{revcomment}
+\begin{revresponse}
+\addressedin{Section~5}
+Section~5 now contains two separate subsections: case-specific findings and transferable lessons.
+\end{revresponse}
+
+\begin{revcomment}
+\label{r2:c3}
+Table~2 contains an inconsistency: the absolute change for sensor 7 is positive, but the percentage change is negative.
+\end{revcomment}
+\begin{revresponse}[We are grateful to the reviewer for carefully checking the numerical results.]
+\addressedin{Table~2}
+We apologise for this error and have corrected the sign in Table~2.
+\end{revresponse}
+
+\end{document}
