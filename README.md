@@ -26,6 +26,7 @@
 
 ## Features
 
+| | |
 |---|---|
 | 🎨 **Colour per reviewer** | Each reviewer gets their own colour; general comments share one colour |
 | 🔢 **Smart numbering** | Comments numbered **R1.3**, **E.1** — or plain **1, 2, 3** |
